@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realização e Acompanhamento - Baixada Santista</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #ffffff;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: 3.75rem;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            line-height: 1.2;
+        }
+
+        h3 {
+            font-size: 1.875rem;
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #3b82f6 0%, #10b981 50%, #fbbf24 100%);
+            color: white;
+            padding: 5rem 1rem;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 2.5rem;
+            left: 2.5rem;
+            width: 10rem;
+            height: 10rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            filter: blur(3rem);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 2.5rem;
+            right: 2.5rem;
+            width: 15rem;
+            height: 15rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            filter: blur(3rem);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 56rem;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 1.5rem 2rem;
+            font-size: 1.125rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: white;
+            color: #3b82f6;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary:hover {
+            background-color: #fbbf24;
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            border: 2px solid white;
+            background-color: transparent;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .benefits {
+            padding: 4rem 1rem;
+            background-color: #f9fafb;
+        }
+
+        .benefits h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #111827;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #10b981;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            margin-bottom: 0.75rem;
+            color: #111827;
+        }
+
+        .benefit-card p {
+            color: #4b5563;
+        }
+
+        .testimonials {
+            padding: 5rem 1rem;
+            background: linear-gradient(to bottom, white, #eff6ff);
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .testimonials-header h2 {
+            margin-bottom: 1rem;
+            color: #111827;
+        }
+
+        .testimonials-header p {
+            font-size: 1.125rem;
+            color: #4b5563;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            transform: scale(1.05);
+        }
+
+        .testimonial-image {
+            position: relative;
+            height: 16rem;
+            overflow: hidden;
+            background-color: #e5e7eb;
+        }
+
+        .testimonial-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover .testimonial-image img {
+            transform: scale(1.1);
+        }
+
+        .testimonial-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+        }
+
+        .testimonial-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            color: white;
+        }
+
+        .testimonial-info h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-city {
+            font-size: 0.875rem;
+            color: #fbbf24;
+            font-weight: 600;
+        }
+
+        .testimonial-content {
+            padding: 1.5rem;
+        }
+
+        .stars {
+            display: flex;
+            gap: 0.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .star {
+            font-size: 1.25rem;
+        }
+
+        .testimonial-text {
+            color: #374151;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .cta {
+            padding: 4rem 1rem;
+            background: linear-gradient(to right, #10b981, #3b82f6, #fbbf24);
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .cta-box {
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(1rem);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-email {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .cta-guarantees {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        .cta-guarantees p {
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        footer {
+            background-color: #111827;
+            color: white;
+            padding: 3rem 1rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-weight: bold;
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section.regions h4 {
+            color: #4ade80;
+        }
+
+        .footer-section.guarantees h4 {
+            color: #60a5fa;
+        }
+
+        .footer-section.contact h4 {
+            color: #fbbf24;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            color: #d1d5db;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section p {
+            color: #d1d5db;
+            margin-bottom: 1rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.25rem;
+            }
+
+            h2 {
+                font-size: 1.875rem;
+            }
+
+            .hero {
+                padding: 3rem 1rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .testimonials-grid,
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Realização e Acompanhamento</h1>
+            <p>Para mulheres da Baixada Santista que desejam viver suas fantasias com discrição e segurança</p>
+            <div class="button-group">
+                <button class="btn-primary" onclick="copyEmail()">✉️ Entrar em Contato</button>
+                <button class="btn-secondary">❤️ Saiba Mais</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="container">
+            <h2>Por que escolher nosso serviço?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3>Discrição Total</h3>
+                    <p>Seus dados e fotos são protegidos com máxima segurança. Ninguém saberá sobre sua participação.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">❤️</div>
+                    <h3>Mulheres Realizadas</h3>
+                    <p>Conecte-se com mulheres que buscam o mesmo que você: liberdade, prazer e realização pessoal.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">✉️</div>
+                    <h3>Contato Sigiloso</h3>
+                    <p>Comunique-se de forma segura e confidencial. Compartilhe suas fotos e desejos sem preocupações.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="testimonials-header">
+                <h2>Histórias Reais de Mulheres Realizadas</h2>
+                <p>Mulheres de Praia Grande, São Vicente, Guarujá e Cubatão compartilham suas experiências</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-image">
+                        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663183315505/DkUvSnZJRAqGrpfK.webp" alt="Marina - Atriz Italiana Loira">
+                        <div class="testimonial-overlay"></div>
+                        <div class="testimonial-info">
+                            <h3>Marina</h3>
+                            <p class="testimonial-city">Praia Grande</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <span class="star">❤️</span><span class="star">❤️</span><span class="star">❤️</span><span class="star">❤️</span><span class="star">❤️</span>
+                        </div>
+                        <p class="testimonial-text">"Encontrei aqui a liberdade que procurava. Meu marido ficou impressionado com a mudança em nosso relacionamento. Agora vivemos momentos muito mais intensos e apaixonados. Recomendo demais!"</p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-image">
+                        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663183315505/ISsPaXKwvHGOhPcK.jpg" alt="Beatriz - Atriz Italiana Loira Magra">
+                        <div class="testimonial-overlay"></div>
+                        <div class="testimonial-info">
+                            <h3>Beatriz</h3>
+                            <p class="testimonial-city">São Vicente</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <span class="star">❤️</span><span class="star">❤️</span><span class="star">❤️</span><span class="star">❤️</span><span class="star">❤️</span>
+                        </div>
+                        <p class="testimonial-text">"Sempre tive vontade de explorar meus desejos, mas tinha medo de julgamentos. Aqui encontrei mulheres como eu, seguras e realizadas. Meu casamento ganhou uma nova dimensão sensual e profunda."</p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-image">
+                        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663183315505/HVEvvnnYwRoaXOah.jpg" alt="Fernanda - Atriz Italiana Morena Magra">
+                        <div class="testimonial-overlay"></div>
+                        <div class="testimonial-info">
+                            <h3>Fernanda</h3>
+                            <p class="testimonial-city">Guarujá</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <span class="star">❤️</span><span class="star">❤️</span><span class="star">❤️</span><span class="star">❤️</span><span class="star">❤️</span>
+                        </div>
+                        <p class="testimonial-text">"A discrição e segurança que recebi aqui foram incríveis. Consegui viver fantasias que sempre tive e meu parceiro nunca foi tão atento e carinhoso. Vale cada momento!"</p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-image">
+                        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663183315505/gXlmPEOYLvIjUlIe.jpg" alt="Camila - Atriz Italiana Morena Gordinha">
+                        <div class="testimonial-overlay"></div>
+                        <div class="testimonial-info">
+                            <h3>Camila</h3>
+                            <p class="testimonial-city">Cubatão</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <span class="star">❤️</span><span class="star">❤️</span><span class="star">❤️</span><span class="star">❤️</span><span class="star">❤️</span>
+                        </div>
+                        <p class="testimonial-text">"Meu marido e eu estávamos em uma rotina entediante. Depois de nos conectarmos aqui, redescubrimos a paixão um pelo outro. A experiência foi transformadora e muito excitante!"</p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-image">
+                        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663183315505/GzILrsQWocxPnMbT.jpg" alt="Isabela - Atriz Italiana Loira Gordinha">
+                        <div class="testimonial-overlay"></div>
+                        <div class="testimonial-info">
+                            <h3>Isabela</h3>
+                            <p class="testimonial-city">Praia Grande</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <span class="star">❤️</span><span class="star">❤️</span><span class="star">❤️</span><span class="star">❤️</span><span class="star">❤️</span>
+                        </div>
+                        <p class="testimonial-text">"Nunca imaginei que seria tão libertador compartilhar meus desejos mais secretos. O acompanhamento é discreto, seguro e muito satisfatório. Meu casamento floresceu!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Pronta para sua Realização?</h2>
+            <p>Envie um email para nós com suas fotos e desejos. Tudo com total discrição e segurança.</p>
+            <div class="cta-box">
+                <p class="cta-email">casadasrebeldesdabaixadasantista@proton.me</p>
+                <button class="btn-primary" onclick="copyEmail()">✉️ Copiar Email</button>
+            </div>
+            <div class="cta-guarantees">
+                <p>✓ Comunicação 100% Sigilosa</p>
+                <p>✓ Fotos Protegidas e Confidenciais</p>
+                <p>✓ Mulheres Discretas e Realizadas da Região</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section regions">
+                    <h4>Regiões</h4>
+                    <ul>
+                        <li>Praia Grande</li>
+                        <li>São Vicente</li>
+                        <li>Guarujá</li>
+                        <li>Cubatão</li>
+                    </ul>
+                </div>
+                <div class="footer-section guarantees">
+                    <h4>Garantias</h4>
+                    <ul>
+                        <li>✓ Discrição Total</li>
+                        <li>✓ Segurança Garantida</li>
+                        <li>✓ Confidencialidade</li>
+                        <li>✓ Sem Julgamentos</li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h4>Contato</h4>
+                    <p>casadasrebeldesdabaixadasantista@proton.me</p>
+                    <button class="btn-primary" onclick="copyEmail()" style="width: 100%; background-color: #10b981; color: white;">Enviar Email</button>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Realização e Acompanhamento - Baixada Santista. Todos os direitos reservados.</p>
+                <p style="font-size: 0.875rem;">Plataforma segura e discreta para mulheres realizadas.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function copyEmail() {
+            const email = "casadasrebeldesdabaixadasantista@proton.me";
+            navigator.clipboard.writeText(email).then(() => {
+                alert("Email copiado para a área de transferência!");
+            }).catch(() => {
+                alert("Erro ao copiar email. Tente novamente.");
+            });
+        }
+    </script>
+</body>
+</html>
