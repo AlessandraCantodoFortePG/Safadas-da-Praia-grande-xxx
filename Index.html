@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praia Grande - Realização e Acompanhamento Discreto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #ffffff;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header Navigation */
+        header {
+            background-color: #0f172a;
+            color: white;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3b82f6;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #fbbf24;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(59, 130, 246, 0.85) 100%);
+            color: white;
+            padding: 8rem 1rem;
+            text-align: center;
+            background-attachment: fixed;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 56rem;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+            font-size: 3.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .btn-primary {
+            padding: 1.2rem 2.5rem;
+            background-color: #fbbf24;
+            color: #0f172a;
+            font-weight: bold;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary:hover {
+            background-color: #f59e0b;
+            transform: scale(1.05);
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 1rem;
+            background-color: #f8fafc;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 1rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 5rem 1rem;
+        }
+
+        .benefits h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid #3b82f6;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 5rem 1rem;
+            background-color: #0f172a;
+            color: white;
+        }
+
+        .gallery h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            height: 300px;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            font-weight: bold;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 5rem 1rem;
+            text-align: center;
+            background: #f8fafc;
+        }
+
+        .cta-box {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 3rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .cta-email {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #3b82f6;
+            margin-bottom: 1.5rem;
+            word-break: break-all;
+        }
+
+        footer {
+            background: #0f172a;
+            color: #9ca3af;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .about-content { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">🌊 Praia Grande Elite</div>
+                <nav>
+                    <a href="#about">Sobre</a>
+                    <a href="#gallery">Cidade</a>
+                    <a href="#contact">Contato</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Realização e Acompanhamento Discreto</h1>
+                <p>Experiências exclusivas na Baixada Santista com total sigilo e sofisticação.</p>
+                <button class="btn-primary" onclick="scrollToContact()">Entrar em Contato</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Excelência em Praia Grande</h2>
+                    <p>Oferecemos um serviço de acompanhamento pautado na discrição absoluta e no respeito mútuo. Nossa comunidade em Praia Grande é formada por mulheres reais e realizadas que buscam proporcionar momentos memoráveis.</p>
+                    <p>Seja para um jantar, um evento social ou um encontro privado, garantimos a melhor experiência da região.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://turismo.praiagrande.sp.gov.br/wp-content/uploads/2021/07/Orla-de-Praia-Grande.jpg" alt="Orla de Praia Grande">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="container">
+            <h2>Nossos Pilares</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>🔒 Sigilo Total</h3>
+                    <p>Sua identidade e informações são tratadas com o mais alto nível de confidencialidade.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>✨ Sofisticação</h3>
+                    <p>Atendimento de alto padrão para clientes que não abrem mão da qualidade.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>📍 Localização</h3>
+                    <p>Atuamos nos melhores pontos de Praia Grande e região da Baixada.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2>A Cidade de Praia Grande</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://turismo.praiagrande.sp.gov.br/wp-content/uploads/2021/07/Fortaleza-de-Itaipu.jpg" alt="Fortaleza de Itaipu">
+                    <div class="gallery-label">Fortaleza de Itaipu</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://turismo.praiagrande.sp.gov.br/wp-content/uploads/2021/07/Estatua-de-Iemanja.jpg" alt="Estátua de Iemanjá">
+                    <div class="gallery-label">Estátua de Iemanjá</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://turismo.praiagrande.sp.gov.br/wp-content/uploads/2021/07/Praca-das-Cabecas.jpg" alt="Praça das Cabeças">
+                    <div class="gallery-label">Pontos Turísticos</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>Inicie sua Experiência</h2>
+            <div class="cta-box">
+                <p>Para agendamentos e informações, envie um e-mail:</p>
+                <p class="cta-email">casadasrebeldesdabaixadasantista@proton.me</p>
+                <button class="btn-primary" onclick="copyEmail()">Copiar E-mail</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Realização e Acompanhamento - Praia Grande, SP</p>
+            <p>Atendimento exclusivo para maiores de 18 anos.</p>
+        </div>
+    </footer>
+
+    <script>
+        function copyEmail() {
+            const email = 'casadasrebeldesdabaixadasantista@proton.me';
+            navigator.clipboard.writeText(email).then(() => {
+                alert('E-mail copiado com sucesso!');
+            });
+        }
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
